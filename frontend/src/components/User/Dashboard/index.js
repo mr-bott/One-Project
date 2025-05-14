@@ -23,9 +23,7 @@ const Dashboard = () => {
         const data = await response.json();
         setResearchNotes(data);
         setLoading(false);
-        addNotification(
-         "Data loaded successfully",
-        );
+        addNotification("Data loaded successfully");
       } catch (err) {
         addNotification(
           "Failed to load research notes. Please try again later.",
@@ -68,7 +66,16 @@ const Dashboard = () => {
       .catch(() => addNotification("Failed to copy content"));
   };
   if (loading) {
-    return <Loader />;
+    return (
+      <>
+        <p className="loading-message">
+          → Our servers rely on free resources, so the first request might take
+          up to a minute to awake the servers up. Just give it a moment, and
+          we’ll be good to go!
+        </p>
+        <Loader />
+      </>
+    );
   }
 
   if (error && researchNotes.length === 0) {
@@ -77,12 +84,12 @@ const Dashboard = () => {
 
   return (
     <div className="home-container">
-    <div className="welcome-container">
-  <h1 className="heading">One Project That Connects Us!</h1>
-  <p className="heading-2">Collaborate. Create. Contribute.</p>
-  <p className="heading-2">Write It. Share It. Forget It.</p>
-  <p className="heading-2">No Tracking, No User Data Collection</p>
-</div>
+      <div className="welcome-container">
+        <h1 className="heading">One Project That Connects Us!</h1>
+        <p className="heading-2">Collaborate. Create. Contribute.</p>
+        <p className="heading-2">Write It. Share It. Forget It.</p>
+        <p className="heading-2">No Tracking, No User Data Collection</p>
+      </div>
 
       <div className="search-container">
         <input
@@ -119,7 +126,7 @@ const Dashboard = () => {
           ))}
         </div>
       )}
-      <Footer/>
+      <Footer />
     </div>
   );
 };

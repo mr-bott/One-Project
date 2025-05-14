@@ -20,7 +20,6 @@ class App extends Component {
         <Router>
           {/* Notification bar should always render */}
           <NotificationManager />
-
           <Routes>
             <Route path="/" element={<HomePage />} />
             {/* <Route path="/" element={<ProtectedRoute />} /> */}
@@ -39,9 +38,6 @@ class App extends Component {
                 />
               }
             />
-
-           
-
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
