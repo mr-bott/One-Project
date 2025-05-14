@@ -1,17 +1,8 @@
 const express = require("express");
-const Patient = require("../models/Patient");
-const Dentist = require("../models/Dentist");
+
 const Document = require("../models/Document");
 const router = express.Router();
 
-router.get("/api/dentists", async (req, res) => {
-  try {
-    const dentists = await Dentist.find({}, { password: 0 });
-    res.json(dentists);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
 router.post("/api/documents", async (req, res) => {
   try {
     const { title, content, expiryDate } = req.body;

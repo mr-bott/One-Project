@@ -9,70 +9,61 @@ const app = express();
 const jwt = require("jsonwebtoken");
 const cloudinary = require("cloudinary");
 
-const Patient = require("../models/Patient");
-const Dentist = require("../models/Dentist");
-const Checkup = require("../models/Document");
+const Document = require("../models/Document");
+const Admin = require("../models/Admin");
+
 const router = express.Router();
-
-
-// Signup route user
-router.post("/api/register/patient", async (req, res) => {
+// Signup Route
+router.post("/auth/signup", async (req, res) => {
   try {
-    const { name, email, password } = req.body;
-    const hash = await bcrypt.hash(password, 10);
-    const patient = new Patient({ name, email, password: hash });
-    await patient.save();
-    res.status(201).json({ message: "Patient registered" });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+    const { email, password } = req.body;
 
-
-// SignUp  route dentist
-router.post("/api/register/dentist", async (req, res) => {
-  try {
-    const { name, email, password, description } = req.body;
-    const hash = await bcrypt.hash(password, 10);
-    const dentist = new Dentist({ name, email, password: hash, description });
-    await dentist.save();
-    res.status(201).json({ message: "Dentist registered" });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-//Login route
-
-router.post("/auth/login", async (req, res) => {
-  const { email, password } = req.body;
-  try {
-    let user = await Dentist.findOne({ email });
-    let role = "dentist";
-
-    if (!user) {
-      user = await Patient.findOne({ email });
-      role = "patient";
+    const existingAdmin = await Admin.findOne({ email });
+    if (existingAdmin) {
+      return res.status(400).json({ message: "Admin already exists" });
     }
 
-    if (!user) return res.status(404).json({ message: "User not found" });
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch)
-      return res.status(401).json({ message: "Invalid credentials" });
+    const newAdmin = new Admin({ email, password: hashedPassword });
+    await newAdmin.save();
 
-    const token = jwt.sign({ userId: user._id, role }, process.env.JWT_SECRET, {
-      expiresIn: "7d",
-    });
-
-    res.json({
-      message: "Login successful",
-      token,
-    });
+    res.status(201).json({ message: "Admin registered successfully" });
   } catch (err) {
-    res.status(500).json({ message: "Login failed", error: err.message });
+    res.status(500).json({ message: "Server error", error: err.message });
   }
 });
+
+// Login Route
+router.post("/auth/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const admin = await Admin.findOne({ email });
+    if (!admin) {
+      return res.status(400).json({ message: "Invalid credentials" });
+    }
+
+    const isMatch = await bcrypt.compare(password, admin.password);
+    if (!isMatch) {
+      return res.status(400).json({ message: "Invalid credentials" });
+    }
+
+    const token = jwt.sign({ id: admin._id, role: admin.role }, process.env.JWT_SECRET, {
+      expiresIn: "1d",
+    });
+
+    res.status(200).json({ token, message: "Login successful" });
+  } catch (err) {
+    res.status(500).json({ message: "Server error", error: err.message });
+  }
+});
+
+module.exports = router;
+
+
+
+
 
 
 module.exports = router;
