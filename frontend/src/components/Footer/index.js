@@ -50,8 +50,8 @@ const Footer = () => {
           <div className="footer-brand mobile">
             <h2>For You </h2>
             <p>
-              Creating beautiful digital experiences that transform businesses
-              and delight users around the world.
+              
+           Crafted with ❤️ and care to give you freedom ,to write, reflect, and create without limits.
             </p>
           
           </div>
