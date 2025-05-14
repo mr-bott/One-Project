@@ -1,0 +1,92 @@
+.create-document-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.create-document-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.document-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.document-form label {
+  margin: 0.8rem 0 0.4rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.document-form input,
+.document-form textarea,
+.document-form select {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+.document-form input:focus,
+.document-form textarea:focus,
+.document-form select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.document-form button {
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.document-form button:hover {
+  background: #0056b3;
+}
+
+.success {
+  color: #28a745;
+  font-weight: 500;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.error {
+  color: #dc3545;
+  font-weight: 500;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+
+/* Responsive */
+@media (max-width: 600px) {
+  .create-document-container {
+    padding: 1.2rem;
+  }
+
+  .document-form input,
+  .document-form textarea,
+  .document-form select {
+    font-size: 0.95rem;
+  }
+
+  .document-form button {
+    font-size: 0.95rem;
+  }
+}

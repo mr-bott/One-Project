@@ -1,0 +1,133 @@
+.details-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f9f9fb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.back-link {
+  margin-bottom: 1.5rem;
+}
+
+.back-link a {
+  text-decoration: none;
+  color: #4a90e2;
+  font-weight: bold;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.note-header h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: #2c3e50;
+}
+
+.expiry-container {
+  background-color: #fff3cd;
+  padding: 0.5rem 1rem;
+  border-left: 5px solid #ffce3d;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  color: #856404;
+  margin-top: 0.5rem;
+}
+
+.expiry-label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+
+.copy-button-document {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #4f92ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 10%;
+}
+
+.copy-button-document:hover {
+  background-color:#2E2E2E;
+}
+
+
+.note-content {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.content-preview {
+  white-space: pre-wrap;
+}
+
+p{
+  color: black;
+}
+.qa-container {
+  margin-top: 2rem;
+}
+
+.qa-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #34495e;
+}
+
+.qa-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.qa-item {
+  background-color: #eef5fb;
+  border-left: 4px solid #4a90e2;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.question h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.answer p {
+  margin: 0;
+  color: #555;
+}
+
+.no-qa {
+  color: #999;
+  font-style: italic;
+}
+
+.loading,
+.error {
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 2rem;
+  color: #555;
+}
+
+.error {
+  color: #d9534f;
+}
