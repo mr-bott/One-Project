@@ -68,12 +68,13 @@ const Dashboard = () => {
   if (loading) {
     return (
       <>
+         <Loader />
         <p className="loading-message">
           → Our servers rely on free resources, so the first request might take
           up to a minute to awake the servers up. Just give it a moment, and
           we’ll be good to go!
         </p>
-        <Loader />
+     
       </>
     );
   }
