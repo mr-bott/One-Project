@@ -36,7 +36,7 @@ const Footer = () => {
           <div className="footer-brand">
             <h2>Just For You</h2>
             <p className="site-footer">
-              Crafted with ❤️ and care to give you freedom ,to write, reflect, and create without limits.
+              Developed with ❤️ and care to give you freedom ,to write, reflect, and create without limits.
             </p>
 
      
@@ -51,7 +51,7 @@ const Footer = () => {
             <h2>For You </h2>
             <p>
               
-           Crafted with ❤️ and care to give you freedom ,to write, reflect, and create without limits.
+           Developed with ❤️ and care to give you freedom ,to write, reflect, and create without limits.
             </p>
           
           </div>
