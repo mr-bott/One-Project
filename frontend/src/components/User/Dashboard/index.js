@@ -6,7 +6,7 @@ import Footer from "../../Footer/index";
 import { useNotification } from "../../../context/NotificationContext";
 
 const Dashboard = () => {
-  const [countdown, setCountdown] = useState(3);
+  const [countdown, setCountdown] = useState(30);
   const { addNotification } = useNotification();
   const [researchNotes, setResearchNotes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
