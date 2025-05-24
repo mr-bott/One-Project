@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f5f7fa;
+  background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
   color: #333;
 }
 
@@ -16,7 +16,7 @@ body {
 .welcome-container {
   text-align: center;
   padding: 80px 20px;
-  background: linear-gradient(145deg, #f0f0f0, #dfe9f3);
+  background: linear-gradient(135deg,#8ec5fc,#e0c3fc);
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   margin: 40px auto;
