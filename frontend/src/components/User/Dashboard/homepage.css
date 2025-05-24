@@ -203,3 +203,53 @@ body {
 .no-results {
   color: #95a5a6;
 }
+
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.loading-message {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  max-width: 600px;
+  background-color: #ffffffaa;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-loading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2b2e4a;
+  margin-bottom: 20px;
+}
+
+.countdown-small {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+@media  screen and (max-width: 600px) {
+  
+  
+  .countdown-loading {
+    font-size: 2rem;
+
+  }
+
+.countdown-small {
+  font-size: 1.2rem;
+}
+  
+}

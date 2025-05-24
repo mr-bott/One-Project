@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import "./homepage.css";
 import Loader from "../../Loader/index";
 import Footer from "../../Footer/index";
 import { useNotification } from "../../../context/NotificationContext";
 
 const Dashboard = () => {
+  const [countdown, setCountdown] = useState(3);
   const { addNotification } = useNotification();
   const [researchNotes, setResearchNotes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const navigate = useNavigate();
+  const [message, setMessage] = useState(countdown);
   useEffect(() => {
     // Fetch research notes from API
     const fetchResearchNotes = async () => {
@@ -35,6 +37,22 @@ const Dashboard = () => {
 
     fetchResearchNotes();
   }, []);
+
+
+  // Countdown effect for loading
+  useEffect(() => {
+    if (countdown <= 0) {
+      setMessage("Check your internet connection or try again later.");
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setCountdown((prev) => prev - 1);
+    }, 1000);
+    setMessage(countdown);
+
+    return () => clearTimeout(timer);
+  }, [countdown]);
 
   // Calculate time left until expiry
   const calculateTimeLeft = (expiryDate) => {
@@ -67,14 +85,14 @@ const Dashboard = () => {
   };
   if (loading) {
     return (
-      <>
-        <p className="loading-message">
-          → Our servers rely on free resources, so the first request might take
-          up to a minute to awake the servers up. Just give it a moment, and
-          we’ll be good to go!
-        </p>
-        <Loader />
-      </>
+  <div className="loading-container">
+    <p className="loading-message description">
+      → Our servers rely on free resources, so the first request might take
+      up to a <span className="countdown-small"> {countdown} </span>to wake the servers up. Just give it a moment, and we’ll be good to go!
+    </p>
+    <h1 className="countdown-loading">{message}</h1>
+    <Loader/>
+  </div>
     );
   }
 
@@ -100,7 +118,7 @@ const Dashboard = () => {
           className="search-input"
         />
         <Link to="/create-document">
-          <button className="create-button">Create New Research Note</button>
+          <button className="create-button"> + Create New Research Note</button>
         </Link>
       </div>
 

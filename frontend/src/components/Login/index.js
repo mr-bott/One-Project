@@ -28,7 +28,7 @@ const Login = () => {
       if (response.ok) {
       
         Cookies.set("jwt_token", data.token, { expires: 30 });
-        navigate("/");
+        navigate("/admin/dashboard");
       } else {
         alert(data.message || "Login failed");
       }

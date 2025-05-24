@@ -3,9 +3,11 @@
   background-color: #2D2D2D;
   background-image: linear-gradient(145deg, #2E2E2E, #3B3B3B);
   color:white;
-  padding: 3rem 2rem 1rem;
+  /* padding: 3rem 2rem 1rem; */
+  /* padding:0px 0px 10px 16px; */
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
   width: 100%;
+  border-radius:10px;
 }
 
 .footer-container {
@@ -21,6 +23,13 @@
 .footer-brand {
   flex: 1;
   min-width: 250px;
+  margin-left: 1.5rem;
+}
+@media screen and (max-width:700px) {
+  .footer-brand {
+    padding-top:5px;
+  }
+  
 }
 
 .footer-brand h2 {
@@ -163,13 +172,12 @@
 .accordion-content a {
   text-decoration: none;
   color: white;
-
   font-size: 0.9rem;
 }
 
 .footer-bottom {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
+  margin-top:2rem;
+  padding:0px 15px 10px 15px;
   border-top: 1px solid #eee;
   display: flex;
   flex-direction: row;
@@ -216,5 +224,6 @@
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+    padding-bottom:2rem;
   }
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   FaTwitter,
   FaFacebookF,
@@ -8,6 +9,7 @@ import {
 import "./footer.css";
 
 const Footer = () => {
+  const navigate = useNavigate();
   const [activeAccordion, setActiveAccordion] = useState(null);
 
   const toggleAccordion = (index) => {
@@ -27,6 +29,9 @@ const Footer = () => {
 
   const currentYear = new Date().getFullYear();
 
+  const handleAdminClick = () => {
+     navigate("/admin/dashboard");
+  }
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -38,7 +43,7 @@ const Footer = () => {
             <p className="site-footer">
               Developed with ❤️ and care to give you freedom ,to write, reflect, and create without limits.
             </p>
-
+            <button className="copy-button" onClick={()=>handleAdminClick()}><code>&lt;/&gt;</code>  Admin </button>
      
           </div>
 
@@ -53,7 +58,7 @@ const Footer = () => {
               
            Developed with ❤️ and care to give you freedom ,to write, reflect, and create without limits.
             </p>
-          
+            <button className="copy-button" onClick={()=>handleAdminClick()}><code>&lt;/&gt;</code> Admin </button>
           </div>
 
           
