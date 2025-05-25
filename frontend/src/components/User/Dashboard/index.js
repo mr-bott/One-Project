@@ -6,7 +6,7 @@ import Footer from "../../Footer/index";
 import { useNotification } from "../../../context/NotificationContext";
 
 const Dashboard = () => {
-  const [countdown, setCountdown] = useState(30);
+  const [countdown, setCountdown] = useState(39);
   const { addNotification } = useNotification();
   const [researchNotes, setResearchNotes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -88,7 +88,7 @@ const Dashboard = () => {
   <div className="loading-container">
     <p className="loading-message description">
       → Our servers rely on free resources, so the first request might take
-      up to a <span className="countdown-small"> {countdown} </span>to wake the servers up. Just give it a moment, and we’ll be good to go!
+      up to<span className="countdown-small"> {countdown} </span> sec to wake the servers up. Just give it a moment, and we’ll be good to go!
     </p>
     <h1 className="countdown-loading">{message}</h1>
     <Loader/>
