@@ -125,24 +125,30 @@ const Dashboard = () => {
       {filteredNotes.length === 0 ? (
         <div className="no-results">No research notes found</div>
       ) : (
-        <div className="notes-grid">
-          {filteredNotes.map((note) => (
-            <div className="note-card" key={note._id}>
-              <Link to={`/details/${note._id}`} className="note-content">
-                <h2>{note.title}</h2>
-                <div className="expiry-badge">
-                  {calculateTimeLeft(note.expiryDate)}
-                </div>
-              </Link>
-              <button
-                onClick={(e) => handleCopy(e, note.content)}
-                className="copy-button"
-              >
-                Copy
-              </button>
-            </div>
-          ))}
+      <div className="notes-grid">
+  {filteredNotes.map((note) => (
+    <div className="note-card" key={note._id}>
+      <a
+        href={`/details/${note._id}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="note-content"
+      >
+        <h2>{note.title}</h2>
+        <div className="expiry-badge">
+          {calculateTimeLeft(note.expiryDate)}
         </div>
+      </a>
+      <button
+        onClick={(e) => handleCopy(e, note.content)}
+        className="copy-button"
+      >
+        Copy
+      </button>
+    </div>
+  ))}
+</div>
+
       )}
       <Footer />
     </div>
